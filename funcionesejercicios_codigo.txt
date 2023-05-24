@@ -1,0 +1,28 @@
+function verificarContrasena(contrasena) {
+    if (contrasena.length < 8 || contrasena.length > 20) {
+      return "La contraseña debe tener entre 8 y 20 caracteres.";
+    }
+
+    
+    var tieneMayusculas = /[A-Z]/.test(contrasena);
+    var tieneNumeros = /[0-9]/.test(contrasena);
+  
+    if (!tieneMayusculas || !tieneNumeros) {
+      return "La contraseña debe contener letras mayúsculas y números.";
+    }
+  
+    return "La contraseña es válida.";
+  }
+  
+
+  var contrasenas = [
+    "Abc123456",
+    "password",
+    "HELLO123",
+    "12345678",
+    "AbCdEfG1234567890!"
+  ];
+  
+  contrasenas.forEach(function(contrasena) {
+    console.log(contrasena + ": " + verificarContrasena(contrasena));
+  });
